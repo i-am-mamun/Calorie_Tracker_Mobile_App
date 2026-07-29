@@ -32,6 +32,7 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -39,7 +40,13 @@ class SectionHeader extends StatelessWidget {
         if (trailing != null)
           GestureDetector(
             onTap: onTrailingTap,
-            child: Text(trailing!, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.primary)),
+            child: Text(
+              trailing!,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: isDark ? AppColors.primary : AppColors.primaryDark,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
           ),
       ],
     );

@@ -120,10 +120,14 @@ class HomeScreen extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Icons.arrow_drop_up, color: AppColors.primary, size: 18),
+                Icon(Icons.arrow_drop_up, color: isDark ? AppColors.primary : AppColors.primaryDark, size: 18),
                 Text(
                   '${diary.caloriesBurned} ${s.kcalBurned}',
-                  style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    color: isDark ? AppColors.primary : AppColors.primaryDark,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ],
             ),
@@ -185,7 +189,14 @@ class HomeScreen extends StatelessWidget {
                 ]),
                 GestureDetector(
                   onTap: () => _openLogFood(context, type),
-                  child: Text(addLabel, style: const TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.w500)),
+                  child: Text(
+                    addLabel,
+                    style: TextStyle(
+                      color: isDark ? AppColors.primary : AppColors.primaryDark,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
               ],
             )
@@ -213,9 +224,16 @@ class HomeScreen extends StatelessWidget {
               onTap: () => _openLogFood(context, type),
               child: Row(
                 children: [
-                  const Icon(Icons.add_circle_outline, color: AppColors.primary, size: 16),
+                  Icon(Icons.add_circle_outline, color: isDark ? AppColors.primary : AppColors.primaryDark, size: 16),
                   const SizedBox(width: 6),
-                  Text(addLabel, style: const TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.w500)),
+                  Text(
+                    addLabel,
+                    style: TextStyle(
+                      color: isDark ? AppColors.primary : AppColors.primaryDark,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -239,7 +257,7 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       child: Row(
         children: [
-          const Icon(Icons.water_drop_outlined, color: AppColors.primary, size: 20),
+          Icon(Icons.water_drop_outlined, color: isDark ? AppColors.primary : AppColors.primaryDark, size: 20),
           const SizedBox(width: 10),
           Expanded(
             child: Text('${s.water} · ${diary.waterCups} ${s.of} ${diary.waterGoal}',
@@ -263,7 +281,7 @@ class HomeScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: i < diary.waterCups
-                      ? AppColors.primary
+                      ? (isDark ? AppColors.primary : AppColors.primaryDark)
                       : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
                 ),
               ),

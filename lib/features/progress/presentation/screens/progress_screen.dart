@@ -74,7 +74,16 @@ class ProgressScreen extends StatelessWidget {
       children: [
         Expanded(child: _statCard(context, '${prog.avgKcalPerDay}', s.avgKcalPerDay, null, isDark)),
         const SizedBox(width: 10),
-        Expanded(child: _statCard(context, '${prog.weightChange} kg', s.thisWeek, null, isDark, valueColor: AppColors.primary)),
+        Expanded(
+          child: _statCard(
+            context,
+            '${prog.weightChange} kg',
+            s.thisWeek,
+            null,
+            isDark,
+            valueColor: isDark ? AppColors.primary : AppColors.primaryDark,
+          ),
+        ),
         const SizedBox(width: 10),
         Expanded(child: _statCard(context, '${prog.dayStreak}', s.dayStreak, '🔥', isDark)),
       ],

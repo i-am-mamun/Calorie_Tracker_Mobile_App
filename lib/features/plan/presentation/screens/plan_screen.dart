@@ -159,8 +159,13 @@ class PlanScreen extends StatelessWidget {
       runSpacing: 4,
       children: [
         Text(s.dayTotal, style: Theme.of(context).textTheme.titleMedium),
-        Text('${plan.totalPlanCalories} ${s.kcal} · P ${plan.totalPlanProtein.round()}g',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.primary)),
+        Text(
+          '${plan.totalPlanCalories} ${s.kcal} · P ${plan.totalPlanProtein.round()}g',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: isDark ? AppColors.primary : AppColors.primaryDark,
+                fontWeight: FontWeight.w600,
+              ),
+        ),
       ],
     );
   }
@@ -210,7 +215,13 @@ class PlanScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('${plan.goalWeight.round()}', style: Theme.of(context).textTheme.bodyMedium),
-              Text('${plan.targetWeight.round()}', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: AppColors.primary, fontWeight: FontWeight.w700)),
+              Text(
+                '${plan.targetWeight.round()}',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: isDark ? AppColors.primary : AppColors.primaryDark,
+                      fontWeight: FontWeight.w800,
+                    ),
+              ),
             ],
           ),
           Text('Now ${plan.goalWeight.toStringAsFixed(1)} kg · ${s.projectedArrival} Oct 4',
@@ -244,7 +255,11 @@ class PlanScreen extends StatelessWidget {
             runSpacing: 8,
             children: [
               _macroLegend(context, 'Protein ${(plan.proteinPct * 100).round()}% · ${(plan.dailyBudget * plan.proteinPct / 4).round()}g', const Color(0xFF6B8CFF)),
-              _macroLegend(context, 'Carbs ${(plan.carbsPct * 100).round()}% · ${(plan.dailyBudget * plan.carbsPct / 4).round()}g', AppColors.primary),
+              _macroLegend(
+                context,
+                'Carbs ${(plan.carbsPct * 100).round()}% · ${(plan.dailyBudget * plan.carbsPct / 4).round()}g',
+                isDark ? AppColors.primary : AppColors.primaryDark,
+              ),
               _macroLegend(context, 'Fat ${(plan.fatPct * 100).round()}% · ${(plan.dailyBudget * plan.fatPct / 9).round()}g', AppColors.orange),
             ],
           ),

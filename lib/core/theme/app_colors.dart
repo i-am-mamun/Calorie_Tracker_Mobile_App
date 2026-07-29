@@ -23,8 +23,8 @@ class AppColors {
   static const Color lightCardAlt = Color(0xFFE5E5E0);
   static const Color lightBorder = Color(0xFFDDDDDD);
   static const Color lightTextPrimary = Color(0xFF0F0F0F);
-  static const Color lightTextSecondary = Color(0xFF4A4A4A);
-  static const Color lightTextTertiary = Color(0xFF6B6B6B);
+  static const Color lightTextSecondary = Color(0xFF333333);
+  static const Color lightTextTertiary = Color(0xFF555555);
   static const Color lightNavBar = Color(0xFFFFFFFF);
 
   // Shared

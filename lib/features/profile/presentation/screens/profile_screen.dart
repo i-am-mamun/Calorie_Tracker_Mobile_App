@@ -84,13 +84,27 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                  decoration: BoxDecoration(color: AppColors.primary.withOpacity(0.15), borderRadius: BorderRadius.circular(50)),
+                  decoration: BoxDecoration(
+                    color: (isDark ? AppColors.primary : AppColors.primaryDark).withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.local_fire_department, size: 14, color: AppColors.primary),
+                      Icon(
+                        Icons.local_fire_department,
+                        size: 14,
+                        color: isDark ? AppColors.primary : AppColors.primaryDark,
+                      ),
                       const SizedBox(width: 4),
-                      Text('12 day streak', style: TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w600)),
+                      Text(
+                        '12 day streak',
+                        style: TextStyle(
+                          color: isDark ? AppColors.primary : AppColors.primaryDark,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ],
                   ),
                 ),
